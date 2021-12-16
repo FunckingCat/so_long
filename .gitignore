@@ -9,3 +9,5 @@
 !*.sh
 !libft
 !mlx
+!assets
+!assets/**
