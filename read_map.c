@@ -6,7 +6,7 @@
 /*   By: unix <unix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 20:17:12 by unix              #+#    #+#             */
-/*   Updated: 2021/12/17 20:18:05 by unix             ###   ########.fr       */
+/*   Updated: 2021/12/17 20:34:03 by unix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,29 @@
 
 void	check_symbols(t_vars *vars)
 {
-	int	i;
-	int	j;
-	int	player;
-	int	out;
+	int	ij[2];
+	int	plout[2];
 
-	i = 0;
-	player = 0;
-	out = 0;
-	while (i < vars->map_height)
+	ij[0] = 0;
+	plout[0] = 0;
+	plout[1] = 0;
+	while (ij[0] < vars->map_height)
 	{
-		j = 0;
-		while (j < vars->map_width)
+		ij[1] = 0;
+		while (ij[1] < vars->map_width)
 		{
-			if (vars->map[i][j] == 'P' && player)
+			if (vars->map[ij[0]][ij[1]] == 'P' && plout[0])
 				error("not valid map", "more then one player");
-			if (vars->map[i][j] == 'P' && !player)
-				player++;
-			if (vars->map[i][j] == 'E')
-				out++;
-			if (!ft_strchr("01ECGP", vars->map[i][j]))
+			if (vars->map[ij[0]][ij[1]] == 'P' && !plout[0])
+				plout[0]++;
+			if (vars->map[ij[0]][ij[1]] == 'E')
+				plout[1]++;
+			if (!ft_strchr("01ECGP", vars->map[ij[0]][ij[1]++]))
 				error("not valid map", "not walid symbols");
-			j++;
 		}
-		i++;
+		ij[0]++;
 	}
-	if (!player || !out)
+	if (!plout[0] || !plout[1])
 		error("not valid map", "no player or out on the map");
 }
 
@@ -65,7 +62,7 @@ void	validate_map(t_vars *vars)
 	check_symbols(vars);
 }
 
-void	read_map(t_vars *vars, char *path)
+int	count_lines(char *path)
 {
 	int		map_fd;
 	char	*line;
@@ -82,7 +79,16 @@ void	read_map(t_vars *vars, char *path)
 		line = get_next_line(map_fd);
 	}
 	close(map_fd);
-	vars->map_height = n;
+	return (n);
+}
+
+void	read_map(t_vars *vars, char *path)
+{
+	int		map_fd;
+	char	*line;
+	int		n;
+
+	vars->map_height = count_lines(path);
 	vars->map = malloc(n * sizeof(char *) + 1);
 	if (!vars->map)
 		error("malloc", "alocation failed");
