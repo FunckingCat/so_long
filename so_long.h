@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 16:35:10 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 16:56:42 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 #define GOST1  "./assets/gost/gost01.xpm"
 #define GOST2  "./assets/gost/gost02.xpm"
 #define GOST3  "./assets/gost/gost03.xpm"
-#define COLL   "./assets/land/collectible.xpm"
+#define COIN   "./assets/land/collectible.xpm"
 #define WALL   "./assets/land/wall.xpm"
 #define OUT    "./assets/land/out.xpm"
 #define GROUND "./assets/land/ground.xpm"
@@ -46,6 +46,6 @@ typedef struct s_vars {
 void	error(char *name, char *desc);
 void	read_map(t_vars *vars, char *path);
 void	put_image(t_vars *vars, char *path, int	x, int 	y);
-void	render_map(t_vars *vars);
+void	render_frame(t_vars *vars);
 
 #endif

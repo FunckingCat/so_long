@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 16:16:50 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 16:42:41 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 16:57:38 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,32 @@ void	put_image(t_vars *vars, char *path, int	x, int 	y)
 	mlx_put_image_to_window(vars->mlx, vars->win, img, x, y);
 }
 
-void	render_map(t_vars *vars)
+void	place(t_vars *vars, int i, int j)
+{
+	if (vars->map[i][j] == '1')
+		put_image(vars, WALL, j * TILE, i * TILE);
+	else if (vars->map[i][j] == 'E')
+		put_image(vars, OUT, j * TILE, i * TILE);
+	else if (vars->map[i][j] == 'P')
+	{
+		put_image(vars, GROUND, j * TILE, i * TILE);
+		put_image(vars, HERO, j * TILE, i * TILE);
+	}
+	else if (vars->map[i][j] == 'G')
+	{
+		put_image(vars, GROUND, j * TILE, i * TILE);
+		put_image(vars, GOST, j * TILE, i * TILE);
+	}
+	else if (vars->map[i][j] == 'C')
+	{
+		put_image(vars, GROUND, j * TILE, i * TILE);
+		put_image(vars, COIN, j * TILE, i * TILE);
+	}
+	else
+		put_image(vars, GROUND, j * TILE, i * TILE);
+}
+
+void	render_frame(t_vars *vars)
 {
 	int	i;
 	int	j;
@@ -33,10 +58,7 @@ void	render_map(t_vars *vars)
 		j = 0;
 		while (j < vars->map_width)
 		{
-			if (vars->map[i][j] == '1')
-				put_image(vars, WALL, j * TILE, i * TILE);
-			else
-				put_image(vars, GROUND, j * TILE, i * TILE);
+			place(vars, i, j);
 			j++;
 		}
 		i++;
