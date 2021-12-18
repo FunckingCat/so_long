@@ -6,7 +6,7 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 14:23:43 by unix              #+#    #+#              #
-#    Updated: 2021/12/18 15:21:38 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/12/18 16:22:26 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FLAGS =
 #FLAGS = -Wall -Werror -Wextra
 MLXFLAGS = -framework OpenGL -framework AppKit
 
-SRCS = so_long.c read_map.c
+SRCS = so_long.c read_map.c render_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
