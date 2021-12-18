@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unix <unix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:02 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/17 20:21:08 by unix             ###   ########.fr       */
+/*   Updated: 2021/12/18 11:31:41 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		error("invalid args", "usage: ./so_long map.ber");
 	read_map(&vars, argv[1]);
-	while (*(vars.map))
-	{
-		printf("%s\n", *(vars.map));
-		vars.map++;
-	}
+	vars.sprite_size = 64;
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, vars.map_width * vars.sprite_size, vars.map_height * vars.sprite_size, "Escape");
+	mlx_loop(vars.mlx);
 }
