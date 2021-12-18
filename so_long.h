@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 17:11:40 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 17:55:49 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ typedef struct s_vars {
 void	error(char *name, char *desc);
 void	read_map(t_vars *vars, char *path);
 void	put_image(t_vars *vars, char *path, int	x, int 	y);
-void	render_frame(t_vars *vars);
+int		render_frame(t_vars *vars);
 
 #endif

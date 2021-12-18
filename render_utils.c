@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 16:16:50 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 17:38:17 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 17:54:05 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	place(t_vars *vars, int i, int j)
 		put_image(vars, GROUND, j * TILE, i * TILE);
 }
 
-void	render_frame(t_vars *vars)
+int	render_frame(t_vars *vars)
 {
 	int	i;
 	int	j;
@@ -59,4 +59,5 @@ void	render_frame(t_vars *vars)
 		i++;
 	}
 	put_image(vars, HERO, vars->pl_x * TILE, vars->pl_y * TILE);
+	return (0);
 }
