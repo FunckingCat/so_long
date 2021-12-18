@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:02 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 18:08:40 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 19:07:57 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ void	error(char *name, char *desc)
 	exit(EXIT_FAILURE);
 }
 
+int	key_press(int keycode, t_vars *vars)
+{
+	printf("Hello from key_hook!\n");
+	return (0);
+}
+
+void	set_hooks(t_vars *vars)
+{
+	mlx_hook(vars->win, 2, 1L << 0, key_press, vars);
+	mlx_loop_hook(vars->mlx, render_frame, vars);
+}
+
 int	main(int argc, char **argv)
 {
 	t_vars	vars;
@@ -31,7 +43,6 @@ int	main(int argc, char **argv)
 	read_map(&vars, argv[1]);
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, vars.map_width * TILE, vars.map_height * TILE, "Hello world!");
-	//mlx_key_hook(vars.win, key_press, &vars);
-	mlx_loop_hook(vars.mlx, render_frame, &vars);
+	set_hooks(&vars);
 	mlx_loop(vars.mlx);
 }

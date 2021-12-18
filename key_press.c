@@ -6,14 +6,9 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 18:04:06 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 18:49:25 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	key_press(int keycode, t_vars *vars)
-{
-	printf("Hello from key_hook!\n");
-	return (0);
-}
