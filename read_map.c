@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unix <unix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 20:17:12 by unix              #+#    #+#             */
-/*   Updated: 2021/12/17 20:34:03 by unix             ###   ########.fr       */
+/*   Updated: 2021/12/18 11:23:03 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,19 @@ int	count_lines(char *path)
 		error("map", "no such file or directory");
 	n = 0;
 	line = get_next_line(map_fd);
-	while (line && n++ > -1)
+	while (1)
 	{
-		free(line);
 		line = get_next_line(map_fd);
+		if (line)
+		{
+			free(line);
+			n++;
+		}
+		else
+			break ;
 	}
 	close(map_fd);
-	return (n);
+	return (n + 1);
 }
 
 void	read_map(t_vars *vars, char *path)

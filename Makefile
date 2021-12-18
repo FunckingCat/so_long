@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unix <unix@student.42.fr>                  +#+  +:+       +#+         #
+#    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 14:23:43 by unix              #+#    #+#              #
-#    Updated: 2021/12/17 20:18:36 by unix             ###   ########.fr        #
+#    Updated: 2021/12/18 11:18:52 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ CC = gcc
 FLAGS = -g
 #FLAGS = -Wall -Werror -Wextra
 
-LIB = -L '.' -lft
+LIB = libft.a
 
-#MINILIBX = -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
+MINILIBX = -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
 
 HEADER = so_long.h
 
@@ -38,11 +38,11 @@ $(NAME): $(MAIN_OBJ_FILES) $(HEADER)
 	$(CC) $(FLAGS) $(MINILIBX) -o $(NAME) $(MAIN_OBJ_FILES) $(LIB)
 
 clean:
-	make clean -C ./libft
+#	make clean -C ./libft
 	$(RM) $(MAIN_OBJ_FILES) $(BONUS_OBJ_FILES)
 
 fclean: clean
-	make fclean -C ./libft
+#	make fclean -C ./libft
 	$(RM) $(NAME) $(BONUS_NAME) libft.a
 
 re: fclean all
