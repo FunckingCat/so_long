@@ -6,44 +6,54 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 14:23:43 by unix              #+#    #+#              #
-#    Updated: 2021/12/18 11:24:30 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/12/18 15:21:38 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-CC = gcc 
-FLAGS = -g
-#FLAGS = -Wall -Werror -Wextra
-
-LIB = libft.a
-
-MINILIBX = -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
 
 HEADER = so_long.h
 
-MAIN_FILES = so_long.c read_map.c
+LIBFT_DIR = libft
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
-MAIN_OBJ_FILES = $(MAIN_FILES:.c=.o)
+MLX_DIR = mlx
+MLX_LIB = $(MLX_DIR)/libmlx.a
 
-RM = rm -f
+CC = gcc
+FLAGS = 
+#FLAGS = -Wall -Werror -Wextra
+MLXFLAGS = -framework OpenGL -framework AppKit
+
+SRCS = so_long.c read_map.c
+
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o : %.c $(HEADER)
-	$(CC) $(FLAGS) -Imlx -c $< -o $@
+%.o: %.c $(HEADER)
+	$(CC) $(FLAGS) -o $@ -c $<
+	
+$(NAME): $(OBJS) $(LIBFT_LIB) $(MLX_LIB) $(HEADER)
+	$(CC) $(FLAGS) $(MLXFLAGS) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $(NAME)
 
-$(NAME): $(MAIN_OBJ_FILES) $(HEADER)
-	make bonus -C ./libft
-	cp libft/libft.a ./
-	$(CC) $(FLAGS) $(MINILIBX) -o $(NAME) $(MAIN_OBJ_FILES) $(LIB)
+$(LIBFT_LIB):
+	$(MAKE) bonus -C $(LIBFT_DIR)
+
+$(MLX_LIB):
+	$(MAKE) -C $(MLX_DIR)
 
 clean:
-#	make clean -C ./libft
-	$(RM) $(MAIN_OBJ_FILES) $(BONUS_OBJ_FILES)
+	$(RM) $(OBJS)
+	$(RM) $(BONUS_OBJS)
+#	$(MAKE) clean -C $(LIBFT_DIR)
+#	$(MAKE) clean -C $(MLX_DIR)
 
 fclean: clean
-#	make fclean -C ./libft
-	$(RM) $(NAME) $(BONUS_NAME) libft.a
+	$(RM) $(NAME)
+#	$(RM) $(LIBFT_LIB)
+#	$(RM) $(MLX_LIB)
+
 
 re: fclean all
 
