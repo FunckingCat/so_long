@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:02 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 11:31:41 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 14:45:26 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	error(char *name, char *desc)
 int	main(int argc, char **argv)
 {
 	t_vars	vars;
+	void	*img;
 
 	if (argc != 2)
 		error("invalid args", "usage: ./so_long map.ber");
