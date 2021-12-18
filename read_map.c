@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 20:17:12 by unix              #+#    #+#             */
-/*   Updated: 2021/12/18 11:23:03 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 17:26:48 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,32 @@
 
 void	check_symbols(t_vars *vars)
 {
-	int	ij[2];
-	int	plout[2];
+	int	ij[4];
 
 	ij[0] = 0;
-	plout[0] = 0;
-	plout[1] = 0;
+	ij[2] = 0;
+	ij[3] = 0;
 	while (ij[0] < vars->map_height)
 	{
 		ij[1] = 0;
 		while (ij[1] < vars->map_width)
 		{
-			if (vars->map[ij[0]][ij[1]] == 'P' && plout[0])
+			if (vars->map[ij[0]][ij[1]] == 'P' && ij[2])
 				error("not valid map", "more then one player");
-			if (vars->map[ij[0]][ij[1]] == 'P' && !plout[0])
-				plout[0]++;
+			if (vars->map[ij[0]][ij[1]] == 'P' && !ij[2])
+			{
+				ij[2]++;
+				vars->pl_x = ij[1];
+				vars->pl_y = ij[0];
+			}
 			if (vars->map[ij[0]][ij[1]] == 'E')
-				plout[1]++;
+				ij[3]++;
 			if (!ft_strchr("01ECGP", vars->map[ij[0]][ij[1]++]))
 				error("not valid map", "not walid symbols");
 		}
 		ij[0]++;
 	}
-	if (!plout[0] || !plout[1])
+	if (!ij[3] || !ij[2])
 		error("not valid map", "no player or out on the map");
 }
 

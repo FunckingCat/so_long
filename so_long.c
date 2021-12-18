@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:02 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 16:53:36 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 17:46:14 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	main(int argc, char **argv)
 
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, vars.map_width * TILE, vars.map_height * TILE, "Hello world!");
-	render_frame(&vars);
+	mlx_loop_hook(vars.mlx, render_frame, &vars);
 	mlx_loop(vars.mlx);
 }
