@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/18 15:47:42 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/18 16:19:04 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ typedef struct s_vars {
 	void		*mlx;
 	void		*win;
 	char		**map;
+	int			steps;
 	size_t		map_width;
 	size_t		map_height;
-	int			sprite_size;
 }				t_vars;
 
 void	error(char *name, char *desc);
