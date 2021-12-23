@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 20:17:12 by unix              #+#    #+#             */
-/*   Updated: 2021/12/23 14:01:48 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/23 14:25:29 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,32 @@ int	count_lines(char *path)
 	return (n + 1);
 }
 
+void	put_vals(t_vars *vars)
+{
+	size_t ij[2];
+
+	vars->coins = 0;
+	vars->coins_collected = 0;
+	ij[0] = 0;
+	while (ij[0] < vars->map_height)
+	{
+		ij[1] = 0;
+		while (ij[1] < vars->map_width)
+		{
+			if (vars->map[ij[0]][ij[1]] == 'P')
+			{
+				vars->pl_x = ij[1];
+				vars->pl_y = ij[0];
+			}
+			if (vars->map[ij[0]][ij[1]] == 'C')
+				vars->coins++;
+			ij[1]++;
+		}
+		ij[0]++;
+	}
+	printf("%d coins\n", vars->coins);
+}
+
 void	read_map(t_vars *vars, char *path)
 {
 	int		map_fd;
@@ -103,4 +129,5 @@ void	read_map(t_vars *vars, char *path)
 		vars->map[n] = get_next_line(map_fd);
 	close(map_fd);
 	validate_map(vars);
+	put_vals(vars);
 }

@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/23 14:03:40 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/23 14:07:42 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ typedef struct s_vars {
 	size_t		map_height;
 	int			pl_x;
 	int			pl_y;
-	int			coin;
+	int			coins;
+	int			coins_collected;
 }				t_vars;
 
 void	error(char *name, char *desc);

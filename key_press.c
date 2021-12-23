@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/23 12:38:18 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/23 14:26:56 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	key_press(int keycode, t_vars *vars)
 
 int	mlx_close()
 {
-	printf("Game Closed");
+	printf("Game Closed\n");
 	exit (EXIT_SUCCESS);
 }
