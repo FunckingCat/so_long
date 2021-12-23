@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:02 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/23 15:06:23 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/23 16:50:20 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,17 @@ void	set_hooks(t_vars *vars)
 	mlx_hook(vars->win, KEYPRESS, 1L << 0, key_press, vars);
 	mlx_hook(vars->win, KEYEXIT, 1L << 0, mlx_close, NULL);
 	render_frame(vars);
-	//mlx_loop_hook(vars->mlx, render_frame, vars);
+	mlx_loop_hook(vars->mlx, render_frame, vars);
 }
 
 int	main(int argc, char **argv)
 {
 	t_vars	vars;
-
-	if (argc != 2)
+	
+	vars.bonus = 0;
+	if (argc == 3)
+		vars.bonus = 1;
+	else if (argc != 2)
 		error("invalid args", "usage: ./so_long map.ber");
 	read_map(&vars, argv[1]);
 	vars.mlx = mlx_init();

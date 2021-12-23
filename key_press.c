@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/23 16:45:00 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/23 16:54:10 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ void	ft_move(t_vars *vars, int	x, int y)
 		return ;
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == 'C')
 		coin_collected(vars, vars->pl_y + y, vars->pl_x + x);
+	if (vars->map[vars->pl_y + y][vars->pl_x + x] == 'G' && vars->bonus)
+	{
+		printf("YOU LOST\n");
+		mlx_close();
+	}
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == 'E')
 	{
 		if (vars->coins_collected == vars->coins)
