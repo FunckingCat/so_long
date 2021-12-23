@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 16:16:50 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/23 14:04:20 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/23 16:21:17 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	place(t_vars *vars, int i, int j)
 	else if (vars->map[i][j] == 'G')
 	{
 		put_image(vars, GROUND, j * TILE, i * TILE);
-		put_image(vars, GOST, j * TILE, i * TILE);
+		//put_image(vars, GOST, j * TILE, i * TILE);
 	}
 	else if (vars->map[i][j] == 'C')
 	{

@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/23 14:07:42 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/23 16:42:09 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@
 #define WALL   "./assets/land/wall.xpm"
 #define OUT    "./assets/land/out.xpm"
 #define GROUND "./assets/land/ground.xpm"
+
+# define GAME_LOST "Game over"
+# define GAME_WON "You won!"
+
+# define ORANGE 0xFE6500
 
 typedef struct s_vars {
 	void		*mlx;
