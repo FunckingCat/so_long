@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 20:17:12 by unix              #+#    #+#             */
-/*   Updated: 2021/12/18 17:26:48 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/23 14:01:48 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_symbols(t_vars *vars)
 {
-	int	ij[4];
+	size_t	ij[4];
 
 	ij[0] = 0;
 	ij[2] = 0;
@@ -27,11 +27,7 @@ void	check_symbols(t_vars *vars)
 			if (vars->map[ij[0]][ij[1]] == 'P' && ij[2])
 				error("not valid map", "more then one player");
 			if (vars->map[ij[0]][ij[1]] == 'P' && !ij[2])
-			{
 				ij[2]++;
-				vars->pl_x = ij[1];
-				vars->pl_y = ij[0];
-			}
 			if (vars->map[ij[0]][ij[1]] == 'E')
 				ij[3]++;
 			if (!ft_strchr("01ECGP", vars->map[ij[0]][ij[1]++]))
@@ -45,7 +41,7 @@ void	check_symbols(t_vars *vars)
 
 void	validate_map(t_vars *vars)
 {
-	int		i;
+	size_t	i;
 
 	vars->map_width = ft_strlen(vars->map[0]);
 	i = 1;
@@ -94,11 +90,10 @@ int	count_lines(char *path)
 void	read_map(t_vars *vars, char *path)
 {
 	int		map_fd;
-	char	*line;
 	int		n;
 
 	vars->map_height = count_lines(path);
-	vars->map = malloc(n * sizeof(char *) + 1);
+	vars->map = malloc(vars->map_height * sizeof(char *) + 1);
 	if (!vars->map)
 		error("malloc", "alocation failed");
 	map_fd = open(path, O_RDONLY);

@@ -6,7 +6,7 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 14:23:43 by unix              #+#    #+#              #
-#    Updated: 2021/12/18 19:20:36 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/12/23 14:03:09 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ MLX_DIR = mlx
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
 CC = gcc
-FLAGS = 
+FLAGS = #-fsanitize=address 
 #FLAGS = -Wall -Werror -Wextra
 MLXFLAGS = -framework OpenGL -framework AppKit
 
