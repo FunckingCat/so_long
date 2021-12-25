@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/23 16:54:10 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 11:39:48 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_move(t_vars *vars, int	x, int y)
 	printf("%d\n", vars->steps++);
 	vars->pl_x += x;
 	vars->pl_y += y;
-	render_frame(vars);
+	render_map(vars);
 }
 
 int	key_press(int keycode, t_vars *vars)

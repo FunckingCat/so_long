@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 16:16:50 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/23 16:51:01 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 11:40:22 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,7 @@ void	put_image(t_vars *vars, char *path, int	x, int 	y)
 	mlx_put_image_to_window(vars->mlx, vars->win, img, x, y);
 }
 
-void	place(t_vars *vars, int i, int j)
-{
-	if (vars->map[i][j] == '1')
-		put_image(vars, WALL, j * TILE, i * TILE);
-	else if (vars->map[i][j] == 'E')
-		put_image(vars, OUT, j * TILE, i * TILE);
-	else if (vars->map[i][j] == 'G' && vars->bonus)
-	{
-		put_image(vars, GROUND, j * TILE, i * TILE);
-		put_image(vars, GOST, j * TILE, i * TILE);
-	}
-	else if (vars->map[i][j] == 'C')
-	{
-		put_image(vars, GROUND, j * TILE, i * TILE);
-		put_image(vars, COIN, j * TILE, i * TILE);
-	}
-	else
-		put_image(vars, GROUND, j * TILE, i * TILE);
-}
-
-int	render_frame(t_vars *vars)
+int	render_map(t_vars *vars)
 {
 	size_t	i;
 	size_t	j;
@@ -53,7 +33,22 @@ int	render_frame(t_vars *vars)
 		j = 0;
 		while (j < vars->map_width)
 		{
-			place(vars, i, j);
+			if (vars->map[i][j] == '1')
+				put_image(vars, WALL, j * TILE, i * TILE);
+			else if (vars->map[i][j] == 'E')
+				put_image(vars, OUT, j * TILE, i * TILE);
+			else if (vars->map[i][j] == 'G' && vars->bonus)
+			{
+				put_image(vars, GROUND, j * TILE, i * TILE);
+				put_image(vars, GOST, j * TILE, i * TILE);
+			}
+			else if (vars->map[i][j] == 'C')
+			{
+				put_image(vars, GROUND, j * TILE, i * TILE);
+				put_image(vars, COIN, j * TILE, i * TILE);
+			}
+			else
+				put_image(vars, GROUND, j * TILE, i * TILE);
 			j++;
 		}
 		i++;
