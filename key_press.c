@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 12:09:31 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:38:46 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	key_press(int keycode, t_vars *vars)
 	return (0);
 }
 
-int	mlx_close()
+int	mlx_close(void)
 {
 	exit (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 12:26:16 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:39:52 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@
 # define W_KEY					13
 # define ESC 					53
 
-#define TILE 64
-#define HERO   "./assets/hero/hero00.xpm"
-#define HERO1  "./assets/hero/hero01.xpm"
-#define HERO2  "./assets/hero/hero02.xpm"
-#define HERO3  "./assets/hero/hero03.xpm"
-#define GOST   "./assets/gost/gost00.xpm"
-#define GOST1  "./assets/gost/gost01.xpm"
-#define GOST2  "./assets/gost/gost02.xpm"
-#define GOST3  "./assets/gost/gost03.xpm"
-#define COIN   "./assets/land/collectible.xpm"
-#define WALL   "./assets/land/wall.xpm"
-#define OUT    "./assets/land/out.xpm"
-#define GROUND "./assets/land/ground.xpm"
+# define TILE 64
+# define HERO   "./assets/hero/hero00.xpm"
+# define HERO1  "./assets/hero/hero01.xpm"
+# define HERO2  "./assets/hero/hero02.xpm"
+# define HERO3  "./assets/hero/hero03.xpm"
+# define GOST   "./assets/gost/gost00.xpm"
+# define GOST1  "./assets/gost/gost01.xpm"
+# define GOST2  "./assets/gost/gost02.xpm"
+# define GOST3  "./assets/gost/gost03.xpm"
+# define COIN   "./assets/land/collectible.xpm"
+# define WALL   "./assets/land/wall.xpm"
+# define OUT    "./assets/land/out.xpm"
+# define GROUND "./assets/land/ground.xpm"
 
 # define GAME_LOST "Game over"
 # define GAME_WON "You won!"
@@ -64,11 +64,11 @@ typedef struct s_vars {
 
 void	error(char *name, char *desc);
 void	read_map(t_vars *vars, char *path);
-void	put_image(t_vars *vars, char *path, int	x, int 	y);
+void	put_image(t_vars *vars, char *path, int	x, int	y);
 int		render_map(t_vars *vars);
 int		render_loop(t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
-int		mlx_close();
+int		mlx_close(void);
 char	*anim_hero(t_vars *vars);
 char	*anim_gost(t_vars *vars);
 

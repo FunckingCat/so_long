@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 12:15:27 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 12:34:12 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:40:02 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*anim_hero(t_vars *vars)
 {
 	static int	loop = 0;
-	
+
 	if (!vars->bonus)
 		return (HERO);
 	loop++;
@@ -42,7 +42,7 @@ char	*anim_hero(t_vars *vars)
 char	*anim_gost(t_vars *vars)
 {
 	static int	loop = 0;
-	
+
 	if (!vars->bonus)
 		return (GOST);
 	loop++;

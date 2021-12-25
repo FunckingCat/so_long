@@ -6,13 +6,13 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 16:16:50 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 12:26:43 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:39:05 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	put_image(t_vars *vars, char *path, int	x, int 	y)
+void	put_image(t_vars *vars, char *path, int	x, int	y)
 {
 	int		a;
 	int		b;
@@ -46,7 +46,7 @@ int	render_map(t_vars *vars)
 	return (0);
 }
 
-int render_loop(t_vars *vars)
+int	render_loop(t_vars *vars)
 {
 	size_t	i;
 	size_t	j;
