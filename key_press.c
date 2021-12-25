@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 16:21:28 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 16:33:07 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	key_press(int keycode, t_vars *vars)
 
 int	endgame(t_vars *vars)
 {
-	int	i;
+	size_t	i;
 
 	if (vars->gameover == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 12:42:56 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 16:29:47 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 16:33:21 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	move_pos(t_vars *vars, int *a, int d1, int d2)
 {
-	char	tmp;
 	int		x;
 	int		y;
 

@@ -6,7 +6,7 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 14:23:43 by unix              #+#    #+#              #
-#    Updated: 2021/12/25 14:48:50 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/12/25 16:33:32 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,8 @@ LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MLX_DIR = mlx
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
-CC = gcc
-FLAGS = #-fsanitize=address 
-#FLAGS = -Wall -Werror -Wextra
+CC = gcc 
+FLAGS = -Wall -Werror -Wextra
 MLXFLAGS = -framework OpenGL -framework AppKit
 
 SRCS = so_long.c read_map.c render_utils.c key_press.c animate.c move_gost.c
@@ -46,13 +45,13 @@ $(MLX_LIB):
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(BONUS_OBJS)
-#	$(MAKE) clean -C $(LIBFT_DIR)
-#	$(MAKE) clean -C $(MLX_DIR)
+	$(MAKE) clean -C $(LIBFT_DIR)
+	$(MAKE) clean -C $(MLX_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
-#	$(RM) $(LIBFT_LIB)
-#	$(RM) $(MLX_LIB)
+	$(RM) $(LIBFT_LIB)
+	$(RM) $(MLX_LIB)
 
 
 re: fclean all
