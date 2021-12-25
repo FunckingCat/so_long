@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 12:42:56 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 15:22:05 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 15:35:26 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ void	move_pos(t_vars *vars, int x, int y, int d1,int d2)
 		vars->map[x + d1][y + d2] = 'G';
 	}
 	if ((x + d1 == vars->pl_y) && (y + d2 == vars->pl_x))
-	{
-		printf("GAME OVER\n");
-		mlx_close();
-	}
+		vars->gameover = 1;
 }
 
 void	move(t_vars *vars, size_t x, size_t y, size_t px, size_t py)

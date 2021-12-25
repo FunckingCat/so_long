@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:02 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 12:39:28 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 15:35:14 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
 	t_vars	vars;
 
 	vars.bonus = 0;
+	vars.gameover = 0;
 	if (argc == 3)
 		vars.bonus = 1;
 	else if (argc != 2)

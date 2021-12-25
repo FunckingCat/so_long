@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 12:57:09 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 15:40:15 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@ void	print_steps(t_vars *vars, int steps)
 
 void	ft_move(t_vars *vars, int	x, int y)
 {
+	if (vars->gameover == 1)
+	{
+		printf("-------> GAME OVER <----------\n");
+		printf("------> your score is %d <-----\n", vars->gameover);
+		mlx_close();
+	}
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == '1')
 		return ;
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == 'C')
 		coin_collected(vars, vars->pl_y + y, vars->pl_x + x);
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == 'G' && vars->bonus)
-	{
-		printf("YOU LOST\n");
-		mlx_close();
-	}
+		vars->gameover = 1;
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == 'E')
 	{
 		if (vars->coins_collected == vars->coins)
