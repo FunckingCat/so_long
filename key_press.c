@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 11:51:59 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:09:31 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@ void	coin_collected(t_vars *vars, int x, int y)
 	vars->map[x][y] = '0';
 	put_image(vars, GROUND, y * TILE, x * TILE);
 	vars->coins_collected++;
+}
+
+void	print_steps(t_vars *vars, int steps)
+{
+	put_image(vars, WALL, 0, 0);
+	if (vars->bonus)
+		mlx_string_put(vars->mlx, vars->win, 20, 20, ORANGE, ft_itoa(steps));
+	else
+		printf("%d\n", vars->steps++);
 }
 
 void	ft_move(t_vars *vars, int	x, int y)
@@ -40,7 +49,7 @@ void	ft_move(t_vars *vars, int	x, int y)
 		else
 			return ;
 	}
-	printf("%d\n", vars->steps++);
+	print_steps(vars, vars->steps++);
 	put_image(vars, GROUND, vars->pl_x * TILE, vars->pl_y * TILE);
 	vars->pl_x += x;
 	vars->pl_y += y;

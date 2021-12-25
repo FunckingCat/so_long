@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 11:44:08 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:08:14 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define GAME_LOST "Game over"
 # define GAME_WON "You won!"
 
-# define ORANGE 0xFE6500
+# define ORANGE 0xFFFFFF
 
 typedef struct s_vars {
 	void		*mlx;
