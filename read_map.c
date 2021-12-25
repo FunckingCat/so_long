@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 20:17:12 by unix              #+#    #+#             */
-/*   Updated: 2021/12/23 16:45:26 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 15:52:22 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,12 @@ void	read_map(t_vars *vars, char *path)
 	if (!vars->map)
 		error("malloc", "alocation failed");
 	map_fd = open(path, O_RDONLY);
+	if (map_fd == -1)
+		error("map name", "nosuch file of directory");
+	if (ft_strlen(path) < 5)
+		error("map name", "map end should be .ber");
+	if (ft_strcmp(path + ft_strlen(path) - 4, ".ber"))
+		error("map name", "map end should be .ber");
 	n = 0;
 	vars->map[n] = get_next_line(map_fd);
 	while (vars->map[n++])
