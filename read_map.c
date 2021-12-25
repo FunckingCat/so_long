@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 20:17:12 by unix              #+#    #+#             */
-/*   Updated: 2021/12/25 16:20:46 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 16:27:35 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	count_lines(char *path)
 
 void	put_vals(t_vars *vars)
 {
-	size_t ij[2];
+	size_t	ij[2];
 
 	vars->coins = 0;
 	vars->coins_collected = 0;
