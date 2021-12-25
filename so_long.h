@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 12:08:14 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:26:16 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ int		render_map(t_vars *vars);
 int		render_loop(t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
 int		mlx_close();
+char	*anim_hero(t_vars *vars);
+char	*anim_gost(t_vars *vars);
 
 #endif

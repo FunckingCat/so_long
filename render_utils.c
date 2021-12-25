@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 16:16:50 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 11:47:23 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:26:43 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int render_loop(t_vars *vars)
 			if (vars->map[i][j] == 'G' && vars->bonus)
 			{
 				put_image(vars, GROUND, j * TILE, i * TILE);
-				put_image(vars, GOST, j * TILE, i * TILE);
+				put_image(vars, anim_gost(vars), j * TILE, i * TILE);
 			}
 			else if (vars->map[i][j] == 'C')
 			{
@@ -71,6 +71,6 @@ int render_loop(t_vars *vars)
 		}
 		i++;
 	}
-	put_image(vars, HERO, vars->pl_x * TILE, vars->pl_y * TILE);
+	put_image(vars, anim_hero(vars), vars->pl_x * TILE, vars->pl_y * TILE);
 	return (0);
 }
