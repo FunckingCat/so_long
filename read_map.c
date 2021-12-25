@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 20:17:12 by unix              #+#    #+#             */
-/*   Updated: 2021/12/25 15:52:22 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 16:20:46 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ int	count_lines(char *path)
 	int		n;
 
 	map_fd = open(path, O_RDONLY);
-	if (map_fd == 1)
+	if (map_fd == -1)
 		error("map", "no such file or directory");
 	n = 0;
 	line = get_next_line(map_fd);
+	if (line)
+		free(line);
 	while (1)
 	{
 		line = get_next_line(map_fd);
@@ -118,6 +120,10 @@ void	read_map(t_vars *vars, char *path)
 	int		map_fd;
 	int		n;
 
+	if (ft_strlen(path) < 5)
+		error("map name", "map end should be .ber");
+	if (ft_strcmp(path + ft_strlen(path) - 4, ".ber"))
+		error("map name", "map end should be .ber");
 	vars->map_height = count_lines(path);
 	vars->map = malloc(vars->map_height * sizeof(char *) + 1);
 	if (!vars->map)
@@ -125,10 +131,6 @@ void	read_map(t_vars *vars, char *path)
 	map_fd = open(path, O_RDONLY);
 	if (map_fd == -1)
 		error("map name", "nosuch file of directory");
-	if (ft_strlen(path) < 5)
-		error("map name", "map end should be .ber");
-	if (ft_strcmp(path + ft_strlen(path) - 4, ".ber"))
-		error("map name", "map end should be .ber");
 	n = 0;
 	vars->map[n] = get_next_line(map_fd);
 	while (vars->map[n++])

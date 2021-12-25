@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 16:05:55 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 16:12:06 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	key_press(int keycode, t_vars *vars)
 
 int	endgame(t_vars *vars)
 {
+	int	i;
+	
 	if (vars->gameover == 1)
 	{
 		printf("-------> GAME OVER <----------\n");
@@ -78,5 +80,11 @@ int	endgame(t_vars *vars)
 	{
 		printf("---------> YOU WIN <------------\n");
 	}
+	i = 0;
+	while (i < vars->map_height)
+		free(vars->map[i++]);
+	free(vars->map);
+	free(vars->mlx);
+	free(vars->win);
 	exit (EXIT_SUCCESS);
 }
