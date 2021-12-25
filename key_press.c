@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 16:00:25 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 16:05:55 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,6 @@ void	print_steps(t_vars *vars, int steps)
 
 void	ft_move(t_vars *vars, int	x, int y)
 {
-	if (vars->gameover == 1)
-	{
-		printf("-------> GAME OVER <----------\n");
-		printf("------> your score is %d <-----\n", vars->coins_collected);
-		mlx_close();
-	}
-	if (vars->gamewin == 1)
-	{
-		printf("---------> YOU WIN <------------\n");
-		mlx_close();
-	}
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == '1')
 		return ;
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == 'C')
@@ -63,6 +52,8 @@ void	ft_move(t_vars *vars, int	x, int y)
 
 int	key_press(int keycode, t_vars *vars)
 {
+	if (vars->gamewin || vars->gameover)
+		endgame(vars);
 	if (keycode == A_KEY)
 		ft_move(vars, -1, 0);
 	if (keycode == D_KEY)
@@ -72,11 +63,20 @@ int	key_press(int keycode, t_vars *vars)
 	if (keycode == W_KEY)
 		ft_move(vars, 0, -1);
 	if (keycode == ESC)
-		mlx_close();
+		endgame(vars);
 	return (0);
 }
 
-int	mlx_close(void)
+int	endgame(t_vars *vars)
 {
+	if (vars->gameover == 1)
+	{
+		printf("-------> GAME OVER <----------\n");
+		printf("------> your score is %d <-----\n", vars->coins_collected);
+	}
+	if (vars->gamewin == 1)
+	{
+		printf("---------> YOU WIN <------------\n");
+	}
 	exit (EXIT_SUCCESS);
 }
