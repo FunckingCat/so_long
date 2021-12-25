@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 16:16:50 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 11:40:22 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 11:45:20 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,27 @@ int	render_map(t_vars *vars)
 				put_image(vars, WALL, j * TILE, i * TILE);
 			else if (vars->map[i][j] == 'E')
 				put_image(vars, OUT, j * TILE, i * TILE);
-			else if (vars->map[i][j] == 'G' && vars->bonus)
+			else
+				put_image(vars, GROUND, j * TILE, i * TILE);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int render_loop(t_vars *vars)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < vars->map_height)
+	{
+		j = 0;
+		while (j < vars->map_width)
+		{
+			if (vars->map[i][j] == 'G' && vars->bonus)
 			{
 				put_image(vars, GROUND, j * TILE, i * TILE);
 				put_image(vars, GOST, j * TILE, i * TILE);
@@ -47,8 +67,6 @@ int	render_map(t_vars *vars)
 				put_image(vars, GROUND, j * TILE, i * TILE);
 				put_image(vars, COIN, j * TILE, i * TILE);
 			}
-			else
-				put_image(vars, GROUND, j * TILE, i * TILE);
 			j++;
 		}
 		i++;

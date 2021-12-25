@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 11:39:48 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 11:44:08 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	error(char *name, char *desc);
 void	read_map(t_vars *vars, char *path);
 void	put_image(t_vars *vars, char *path, int	x, int 	y);
 int		render_map(t_vars *vars);
+int		render_loop(t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
 int		mlx_close();
 

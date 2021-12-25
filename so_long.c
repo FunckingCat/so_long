@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:02 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 11:39:48 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 11:44:18 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	set_hooks(t_vars *vars)
 	mlx_hook(vars->win, KEYPRESS, 1L << 0, key_press, vars);
 	mlx_hook(vars->win, KEYEXIT, 1L << 0, mlx_close, NULL);
 	render_map(vars);
-	mlx_loop_hook(vars->mlx, render_map, vars);
+	mlx_loop_hook(vars->mlx, render_loop, vars);
 }
 
 int	main(int argc, char **argv)
