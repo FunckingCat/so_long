@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 15:40:15 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 16:00:25 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,12 @@ void	ft_move(t_vars *vars, int	x, int y)
 	if (vars->gameover == 1)
 	{
 		printf("-------> GAME OVER <----------\n");
-		printf("------> your score is %d <-----\n", vars->gameover);
+		printf("------> your score is %d <-----\n", vars->coins_collected);
+		mlx_close();
+	}
+	if (vars->gamewin == 1)
+	{
+		printf("---------> YOU WIN <------------\n");
 		mlx_close();
 	}
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == '1')
@@ -45,10 +50,7 @@ void	ft_move(t_vars *vars, int	x, int y)
 	if (vars->map[vars->pl_y + y][vars->pl_x + x] == 'E')
 	{
 		if (vars->coins_collected == vars->coins)
-		{
-			printf("!!! YOU WON !!!\n");
-			mlx_close();
-		}
+			vars->gamewin = 1;
 		else
 			return ;
 	}
