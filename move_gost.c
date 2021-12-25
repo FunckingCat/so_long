@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 12:42:56 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 13:53:11 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 13:53:48 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	move(t_vars *vars, size_t x, size_t y, size_t px, size_t py)
 	// int	rand;
 
 	// rand = ((vars->steps * x - py) / px + vars->coins_collected * py) % 4;
-	move_pos(vars, x, y, 0, -1);
+	move_pos(vars, x, y, 1, 0);
 	// if (rand == 0) //horizontal
 	// {
 	// 	if (px - x < 0)
