@@ -6,7 +6,7 @@
 /*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 18:01:09 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 12:38:46 by tyamcha          ###   ########.fr       */
+/*   Updated: 2021/12/25 12:57:09 by tyamcha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	ft_move(t_vars *vars, int	x, int y)
 	put_image(vars, GROUND, vars->pl_x * TILE, vars->pl_y * TILE);
 	vars->pl_x += x;
 	vars->pl_y += y;
+	move_gost(vars);
 }
 
 int	key_press(int keycode, t_vars *vars)

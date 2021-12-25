@@ -6,7 +6,7 @@
 #    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 14:23:43 by unix              #+#    #+#              #
-#    Updated: 2021/12/25 12:15:22 by tyamcha          ###   ########.fr        #
+#    Updated: 2021/12/25 13:22:35 by tyamcha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FLAGS = #-fsanitize=address
 #FLAGS = -Wall -Werror -Wextra
 MLXFLAGS = -framework OpenGL -framework AppKit
 
-SRCS = so_long.c read_map.c render_utils.c key_press.c animate.c
+SRCS = so_long.c read_map.c render_utils.c key_press.c animate.c move_gost.c
 
 OBJS = $(SRCS:.c=.o)
 
