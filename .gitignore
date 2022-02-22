@@ -8,7 +8,7 @@
 !*.xcf
 !*.sh
 !libft
-!mlx
+!mlx*
 !assets
 !assets/**
 !maps

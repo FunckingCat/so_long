@@ -3,63 +3,60 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+         #
+#    By: david <david@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/08 14:23:43 by unix              #+#    #+#              #
-#    Updated: 2021/12/25 16:33:32 by tyamcha          ###   ########.fr        #
+#    Updated: 2022/02/22 17:06:27 by david            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-HEADER = so_long.h
-
-LIBFT_DIR = libft
-LIBFT_LIB = $(LIBFT_DIR)/libft.a
-
-MLX_DIR = mlx
-MLX_LIB = $(MLX_DIR)/libmlx.a
-
-CC = gcc 
-FLAGS = -Wall -Werror -Wextra
-MLXFLAGS = -framework OpenGL -framework AppKit
-
 SRCS = so_long.c read_map.c render_utils.c key_press.c animate.c move_gost.c
 
-OBJS = $(SRCS:.c=.o)
+HEADER = so_long.h
 
-all: $(NAME)
+OBJS		=	$(SRCS:%.c=%.o)
 
-%.o: %.c $(HEADER)
-	$(CC) $(FLAGS) -o $@ -c $<
-	
-$(NAME): $(OBJS) $(LIBFT_LIB) $(MLX_LIB) $(HEADER)
-	$(CC) $(FLAGS) $(MLXFLAGS) $(OBJS) $(LIBFT_LIB) $(MLX_LIB) -o $(NAME)
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror
+RM			=	rm -f
 
-$(LIBFT_LIB):
-	$(MAKE) bonus -C $(LIBFT_DIR)
+LIBFT		=	libft/libft.a
+LIBFT_DIR	=	libft
 
-$(MLX_LIB):
-	$(MAKE) -C $(MLX_DIR)
+MLXFLAGS	=	-L ./mlx/ -lmlx -framework OpenGL -framework AppKit -lz
+MLXDIR		=	./mlx/
+
+ifeq ($(shell uname), Linux)
+MLXFLAGS	=	-L ./mlx_linux/ -lmlx -Ilmlx -lXext -lX11
+MLXDIR		=	./mlx_linux/
+endif
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS) $(HEADERS)
+			@make -s -C $(MLXDIR)
+			@make bonus -s -C $(LIBFT_DIR)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) $(MLXFLAGS) -lm
+
+%.o : %.c $(HEADERS)
+			$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
-	$(RM) $(BONUS_OBJS)
-	$(MAKE) clean -C $(LIBFT_DIR)
-	$(MAKE) clean -C $(MLX_DIR)
+			$(RM) $(OBJS)
 
-fclean: clean
-	$(RM) $(NAME)
-	$(RM) $(LIBFT_LIB)
-	$(RM) $(MLX_LIB)
+fclean:		clean
+			$(RM) $(NAME)
+			make clean -s -C $(LIBFT_DIR)
+			make clean -s -C $(MLXDIR)
 
+re:			fclean all
 
-re: fclean all
+run:		all
+			./so_long ./maps/map.ber
 
-tt: all 
-	./so_long maps/map.ber bonus
+val:		all
+			valgrind ./so_long ./maps/map1.cub
 
-ttt: all
-	./so_long maps/map.ber
-
-.PHONY: all clean fclean re bonus
+.PHONY:		all clean fclean re run val
