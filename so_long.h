@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tyamcha <tyamcha@student.42.fr>            +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:22:06 by tyamcha           #+#    #+#             */
-/*   Updated: 2021/12/25 16:04:22 by tyamcha          ###   ########.fr       */
+/*   Updated: 2022/02/22 17:29:06 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,21 @@
 # define KEYPRESS		2
 # define KEYEXIT		17
 
+//MacOS
 # define A_KEY					0
 # define S_KEY					1
 # define D_KEY					2
 # define W_KEY					13
 # define ESC 					53
+
+//Linux
+// # define W_KEY		119
+// # define A_KEY		97
+// # define S_KEY		115
+// # define D_KEY		100
+// # define Q_KEY		113
+// # define E_KEY		101
+// # define ESC 		65307
 
 # define TILE 64
 # define HERO   "./assets/hero/hero00.xpm"
