@@ -9,6 +9,6 @@ To run so_long just execute:
 
 	make run
 
-![Preview](./assets/preview.jpg)
+![Preview](./assets/preview.png)
 
 Also in linux minilibx has a bug with images transparancy.
